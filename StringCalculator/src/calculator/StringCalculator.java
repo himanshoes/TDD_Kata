@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.Arrays;
+
 public class StringCalculator {
 
 	public int add(String numbers) {
@@ -7,15 +9,14 @@ public class StringCalculator {
 		if (numbers.isEmpty())
 			return 0;
 		else if (numbers.contains(",")) {
-			String [] allNumbers = numbers.split(",");
-			return parseStringToInteger(allNumbers[0])+parseStringToInteger(allNumbers[1]);
+			String [] allNumbersInString = numbers.split(",");
+			int [] allNumbersInInteger = Arrays.stream(allNumbersInString).mapToInt(Integer::parseInt).toArray();
+			
+			return Arrays.stream(allNumbersInInteger).sum();
 		}
 		else
-			return parseStringToInteger(numbers);
+			return Integer.parseInt(numbers);
 	}
 	
-	public int parseStringToInteger(String str) {
-		return Integer.parseInt(str);
-	}
 
 }
