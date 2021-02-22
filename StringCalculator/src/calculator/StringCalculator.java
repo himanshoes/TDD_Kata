@@ -16,8 +16,13 @@ public class StringCalculator {
 			
 			return Arrays.stream(allNumbersInInteger).sum();
 		}
-		else
-			return Integer.parseInt(numbers);
+		else {
+			if (Integer.parseInt(numbers)<0)
+				throw new RuntimeException("Negatives not allowed: "+numbers);
+			else
+				return Integer.parseInt(numbers);
+		}
+			
 	}
 	
 	public String [] stringSplitter(String passedNumbers) {

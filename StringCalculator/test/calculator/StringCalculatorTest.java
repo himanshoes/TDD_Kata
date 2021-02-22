@@ -37,4 +37,14 @@ class StringCalculatorTest {
 	void testForStringWithDifferentDelimeter() {
 		assertEquals(3,calculator.add("//;\n1;2"));
 	}
+	
+	@Test
+	void testForCallingAddMethodMethodWithOneNegativeNumber() {
+		try {
+			calculator.add("-1");
+			//fail("Negatives not allowed");
+		} catch (RuntimeException ex) {
+			assertEquals("Negatives not allowed: -1",calculator.add("-1"));
+		}
+	}
 }
