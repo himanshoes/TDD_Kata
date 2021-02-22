@@ -1,8 +1,10 @@
 package calculator;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class StringCalculator {
 
@@ -13,6 +15,12 @@ public class StringCalculator {
 		else if (Pattern.compile("\\W").matcher(numbers).find()) {
 			String [] allNumbersInString = stringSplitter(numbers);
 			int [] allNumbersInInteger = Arrays.stream(allNumbersInString).mapToInt(Integer::parseInt).toArray();
+			
+			List<Integer> negativeNumbers = Arrays.stream(allNumbersInInteger).filter(i -> i< 0).boxed().collect(Collectors.toList());
+			
+			if(negativeNumbers.size()>0)
+				throw new RuntimeException("Negatives not allowed: "+negativeNumbers.stream().map(String::valueOf)
+				        												.collect(Collectors.joining(",")));
 			
 			return Arrays.stream(allNumbersInInteger).sum();
 		}

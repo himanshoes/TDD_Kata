@@ -48,13 +48,13 @@ class StringCalculatorTest {
 		}
 	}
 	
-//	@Test
-//	void testForCallingAddMethodMethodWithMultipleNegativeNumbers() {
-//		try {
-//			//calculator.add("-1");
-//			fail("Negatives not allowed");
-//		} catch (RuntimeException ex) {
-//			assertEquals("Negatives not allowed: -1",ex.getMessage());
-//		}
-//	}
+	@Test
+	void testForCallingAddMethodMethodWithMultipleNegativeNumbers() {
+		try {
+			calculator.add("-1,-2,3");
+			//fail("Negatives not allowed");
+		} catch (RuntimeException ex) {
+			assertEquals("Negatives not allowed: -1,-2",ex.getMessage());
+		}
+	}
 }
