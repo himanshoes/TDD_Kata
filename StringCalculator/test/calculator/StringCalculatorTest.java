@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class StringCalculatorTest {
 
+	StringCalculator calculator = new StringCalculator();
+	
 	@Test
 	void testForEmptyString() {
-		StringCalculator calculator = new StringCalculator();
 		assertEquals(0,calculator.add(""));
 	}
 	
 	@Test
 	void testForStringWithOneNumber( ) {
-		StringCalculator calculator = new StringCalculator();
 		assertEquals(1,calculator.add("1"));
 	}
 
