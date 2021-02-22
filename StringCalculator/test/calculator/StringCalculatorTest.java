@@ -32,4 +32,9 @@ class StringCalculatorTest {
 	void testForStringHavingLineBreakAsDelimeter() {
 		assertEquals(10,calculator.add("1,2\n3,4"));
 	}
+	
+	@Test
+	void testForStringWithDifferentDelimeter() {
+		assertEquals(3,calculator.add("//;\n1;2"));
+	}
 }
