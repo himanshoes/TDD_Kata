@@ -17,5 +17,9 @@ class StringCalculatorTest {
 	void testForStringWithOneNumber( ) {
 		assertEquals(1,calculator.add("1"));
 	}
-
+	
+	@Test
+	void testForStringWithTwoNumbersSeparatedByComma( ) {
+		assertEquals(3,calculator.add("1,2"));
+	}
 }
