@@ -2,7 +2,12 @@ package calculator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+
+@TestInstance(Lifecycle.PER_CLASS)
 
 class StringCalculatorTest {
 
@@ -56,5 +61,10 @@ class StringCalculatorTest {
 		} catch (RuntimeException ex) {
 			assertEquals("Negatives not allowed: -1,-2",ex.getMessage());
 		}
+	}
+	
+	@AfterAll
+	void testToGetCountOfHowManyTimesAddMethodWasCalled() {
+		assertEquals(8,calculator.getCalledCount());
 	}
 }

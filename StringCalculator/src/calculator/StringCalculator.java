@@ -8,8 +8,13 @@ import java.util.stream.Collectors;
 
 public class StringCalculator {
 
+	private static int count = 0;
+	
 	public int add(String numbers) {
 		// TODO Auto-generated method stub
+		
+		count++;
+		
 		if (numbers.isEmpty())
 			return 0;
 		else if (Pattern.compile("\\W").matcher(numbers).find()) {
@@ -44,6 +49,11 @@ public class StringCalculator {
 		else {
 			return passedNumbers.split(",|\n");
 		}
+	}
+
+	public int getCalledCount() {
+		// TODO Auto-generated method stub
+		return count;
 	}
 	
 
